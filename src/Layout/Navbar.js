@@ -15,16 +15,22 @@ export default function Navbar() {
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/setlists">Setlists</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Setlists
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../../setlists/ViewAllSetlists">View All Setlists</a></li>
+            <li><a class="dropdown-item" href="../../setlists/CreateSetlist">Create New Setlist</a></li>
+          </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Songs
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../songs/ViewAllSongs">View All Songs</a></li>
-            <li><a class="dropdown-item" href="../songs/AddSong">Add a Song</a></li>
+            <li><a class="dropdown-item" href="../../songs/ViewAllSongs">View All Songs</a></li>
+            <li><a class="dropdown-item" href="../../songs/AddSong">Add a Song</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="../songs/ViewOneSong">View One Song Test Link</a></li>
           </ul>

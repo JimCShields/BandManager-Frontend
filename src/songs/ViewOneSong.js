@@ -35,7 +35,6 @@ export default function ViewOneSong() {
                 <th scope="col">Genres</th>
                 <th scope="col">Usage Count</th>
                 <th scope="col">Date Last Used</th>
-                <th scope="col">Genres</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -44,17 +43,10 @@ export default function ViewOneSong() {
                   <td>{song.title}</td>
                   <td>{song.artist}</td>
                   <td>{song.album}</td>
-                  <td>{song.genre}</td>
+                  <td>{song.genres[0]}, {song.genres[1]}</td>
                   <td>{song.usageCount}</td>
                   <td>{song.dateLastUsed}</td>
-                  <td>{song.genres[0]}, {song.genres[1]}</td>
                   <td>
-                    <Link
-                      className="btn btn-danger mx-2"
-                      to={`/songs/ViewOneSong/${song.songId}`}
-                    >
-                      View Details
-                    </Link>
                     <Link
                       className="btn btn-outline-primary mx-2"
                       to={`/songs/editsong/${song.songId}`}
