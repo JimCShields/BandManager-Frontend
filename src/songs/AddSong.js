@@ -8,19 +8,19 @@ export default function AddSong() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [album, setAlbum] = useState("");
-  const [genre, setGenre] = useState("");
+  const [genres, setGenres] = useState([]);
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     await axios.post("http://localhost:8080/api/v1/songs/add", {
       title: title,
       artist: artist,
       album: album,
-      genre: genre,
+      genres: genres,
     });
-    console.log(title, artist, album, genre)
+    console.log(title, artist, album, genres);
     navigate("/");
-  };
+  }
 
   return (
     <div className="container">
@@ -77,8 +77,8 @@ export default function AddSong() {
                 className="form-control"
                 placeholder="Enter the genre, separated by commas if more than one applies"
                 name="genre"
-                defaultValue={genre}
-                onChange={(e) => {setGenre(e.target.value)}}
+                defaultValue={genres}
+                onChange={(e) => {setGenres(e.target.value.split(","))}}
               />
             </div>
             <button type="submit" className="btn btn-outline-primary">
