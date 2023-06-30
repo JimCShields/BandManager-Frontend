@@ -9,12 +9,15 @@ export default function ViewOneSong() {
         title: "",
         artist: "",
         album: "",
-        genres: "",
+        genres: [],
         usageCount: "",
         dateLastUsed: ""
     });
 
     const {songId} = useParams();
+
+    const theGenre = songType =>
+    <div>{songType}</div>
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/v1/songs/${songId}`)
@@ -43,7 +46,7 @@ export default function ViewOneSong() {
                   <td>{song.title}</td>
                   <td>{song.artist}</td>
                   <td>{song.album}</td>
-                  <td>{song.genres[0]}, {song.genres[1]}</td>
+                  <td>{song.genres.map(theGenre)}</td>
                   <td>{song.usageCount}</td>
                   <td>{song.dateLastUsed}</td>
                   <td>
